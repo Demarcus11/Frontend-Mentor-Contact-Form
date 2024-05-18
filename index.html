@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Contact form</title>
+
+</head>
+
+<body>
+  <form class="contact-form">
+    <p class="contact-form-title">Contact Us</p>
+
+    <div class="input-group">
+      <div>
+        <div>
+          <label for="contact-form-first-name">First Name</label>
+          <input id="contact-form-first-name" type="text" required />
+        </div>
+        <p class="error">This field is required</p>
+      </div>
+
+      <div>
+        <div>
+          <label for="contact-form-last-name">Last Name</label>
+          <input id="contact-form-last-name" type="text" required />
+        </div>
+        <p class="error">This field is required</p>
+      </div>
+    </div>
+
+    <div>
+      <label for="contact-form-email">Email Address</label>
+      <input id="contact-form-email" type="email" required>
+      <p class="error">Please enter a valid email address</p>
+    </div>
+
+    <div class="input-group">
+      <label for="">Query Type</label>
+      <label for="contact-form-general-enquiry">
+        <input id="contact-form-general-enquiry" type="radio" />
+        General Enquiry
+      </label>
+      <label for="contact-form-submit-request">
+        <input id="contact-form-submit-request" type="radio" />
+        Support Request
+      </label>
+      <p class="error">Please select a query type</p>
+    </div>
+
+    <div>
+      <label for="contact-form-message">Message</label>
+      <textarea id="contact-form-message"></textarea>
+      <p class="error">This field is required</p>
+    </div>
+
+    <div>
+      <input id="contact-form-consent" type="checkbox">
+      <label for="contact-form-consent">I consent to being contacted by the team</label>
+    </div>
+
+    <button class="contact-form-submit-btn" type="submit">Submit</button>
+  </form>
+</body>
+
+</html>
