@@ -1,0 +1,259 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
+
+:root {
+  --white: hsl(0, 0%, 100%);
+  --green-100: hsl(148, 38%, 91%);
+  --green-400: hsl(169, 82%, 27%);
+  --red-400: hsl(0, 66%, 56%);
+  --grey-500: hsl(186, 15%, 59%);
+  --grey-700: hsl(187, 24%, 22%);
+
+  --text-base: 1rem;
+
+  --font-primary: "Karla", sans-serif;
+
+  --font-normal: 400;
+  --font-bold: 700;
+}
+
+/* CSS Reset */
+
+/* makes sure padding and borders are calculated in the size of an element */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* remove default spacing and force children to inherit the font of their parents by default */
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* adds hanging punctuation when its the first or last character in text, currently not supported in Chrome as of 2024 */
+
+html {
+  hanging-punctuation: first last;
+}
+
+/* body should take at least the full height of the viewport */
+
+body {
+  min-height: 100svh; /* svh assumes theres a address bar open on mobile and prevents layout shift when it disappears */
+}
+
+/* responsive images/videos */
+
+img,
+video,
+svg,
+picture {
+  display: block; /* images/videos should be on their own line */
+  max-width: 100%; /* width of images and videos should be at most be 100% of their container */
+}
+
+/* Make long headings display evenly across multiple lines by default */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/* Gets rid of text orphans and limits text line length by default */
+
+p {
+  max-inline-size: 75ch; /* similar to max-width except its a logical property, so it can adjust to different writing mode directions */
+  text-wrap: pretty;
+}
+
+/* eliminates scroll snap behavior when the user prefers reduced motion and adds some space above the section being scrolled to  */
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 3rem; /* personal peference on how much space (usually 3-5 rem) */
+  }
+}
+
+/* Utility Classes */
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap, 1rem);
+}
+@media (min-width: 35em) {
+  .input-group {
+    flex-direction: row;
+
+    > * {
+      flex: 1;
+    }
+  }
+}
+
+.flex-group {
+  display: flex;
+  align-items: center;
+  gap: var(--gap, 1rem);
+}
+
+.label-input-group {
+  display: grid;
+  gap: var(--gap, 0.5rem);
+}
+
+/* General Styles */
+
+body {
+  background-color: var(--green-100);
+  color: var(--grey-700);
+  font-family: var(--font-primary);
+  font-size: var(--text-base);
+  padding-block: 1rem;
+}
+
+/* Form Styles */
+
+.contact-form {
+  --max-width: 40rem;
+  --input-br: 7px;
+
+  background-color: var(--white);
+  padding: clamp(1rem, 5vw, 2rem);
+  border-radius: 12px;
+  display: grid;
+  gap: 1rem;
+  width: min(100% - 2rem, var(--max-width));
+  margin-inline: auto;
+
+  .contact-form-title {
+    font-size: 1.7rem;
+    color: var(--grey-700);
+    font-weight: var(--font-bold);
+  }
+
+  :where(input[type="text"], input[type="email"], textarea) {
+    padding: 0.5rem;
+    width: 100%;
+    border-radius: var(--input-br);
+    border: 0;
+    outline: 1px solid var(--grey-700);
+
+    &:focus-visible {
+      outline-color: var(--green-400);
+    }
+  }
+
+  .contact-form-message {
+    border: 1px solid var(--grey-700);
+    border-radius: var(--input-br);
+    padding: 0.5rem;
+    min-height: 12rem;
+  }
+
+  > div:nth-of-type(2) {
+    margin-top: 1rem;
+  }
+
+  /* hide real radio button */
+  input[type="radio"] {
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
+
+    &:checked + label {
+      background-color: var(--green-100);
+      outline-color: var(--green-400);
+    }
+
+    /* inner fake radio button circle */
+    &:checked + label .radio-btn::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      display: block;
+      background-color: var(--green-400);
+      border-radius: 100vmax;
+    }
+  }
+
+  /* fake radio button */
+  .radio-btn {
+    width: 1rem;
+    aspect-ratio: 1;
+    outline: 2px solid var(--green-400);
+    border-radius: 100vmax;
+    padding: 3px;
+  }
+
+  .required {
+    font-size: 0.9rem;
+    &::after {
+      content: "*";
+      display: inline;
+      margin-left: 3px;
+      color: var(--green-400);
+    }
+  }
+
+  > div:last-of-type {
+    --gap: 0.7rem;
+    margin-top: 2rem;
+  }
+
+  input[type="checkbox"] {
+    accent-color: var(--green-400);
+  }
+
+  .contact-form-submit-btn {
+    padding: 1rem;
+    background-color: var(--green-400);
+    color: var(--white);
+    border: 0;
+    border-radius: var(--input-br);
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 2px solid var(--green-400);
+      outline-offset: 3px;
+    }
+
+    &:hover {
+      filter: brightness(0.8);
+    }
+  }
+
+  .label-outline {
+    outline: 1px solid var(--grey-700);
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--input-br);
+    cursor: pointer;
+
+    &:is(:hover, :focus-visible) {
+      outline-color: var(--green-400);
+    }
+  }
+
+  .input-error {
+    outline-color: var(--red-400);
+  }
+
+  .error {
+    color: var(--red-400);
+    margin-top: 7px;
+    font-size: 0.85rem;
+
+    &:empty {
+      display: none;
+    }
+  }
+}
