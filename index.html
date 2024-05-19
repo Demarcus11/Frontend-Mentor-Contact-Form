@@ -8,46 +8,47 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <link rel="stylesheet" href="style.css">
-
+  <script src="script.js" defer></script>
   <title>Frontend Mentor | Contact form</title>
 
 </head>
 
 <body>
-  <form class="contact-form">
+  <form class="contact-form" data-contact-form>
     <p class="contact-form-title">Contact Us</p>
 
     <div class="input-group">
       <div>
         <div class="label-input-group">
           <label class="required" for="contact-form-first-name">First Name</label>
-          <input class="contact-form-input input-error" id="contact-form-first-name" type="text" required />
+          <input class="contact-form-input" id="contact-form-first-name" name="first-name" type="text" />
         </div>
-        <p class="error">This field is required</p>
+        <p class="error"></p>
       </div>
 
       <div>
         <div class="label-input-group">
           <label class="required" for="contact-form-last-name">Last Name</label>
-          <input class="contact-form-input" id="contact-form-last-name" type="text" required />
+          <input class="contact-form-input" id="contact-form-last-name" name="last-name" type="text" />
         </div>
-        <p class="error">This field is required</p>
+        <p class="error"></p>
       </div>
     </div>
 
     <div>
       <div class="label-input-group">
         <label class="required" for="contact-form-email">Email Address</label>
-        <input class="contact-form-input" id="contact-form-email" type="email" required />
+        <input class="contact-form-input" id="contact-form-email" name="email" type="text" data-email-input />
       </div>
-      <p class="error">Please enter a valid email address</p>
+      <p class="error"></p>
     </div>
 
     <div class="label-input-group">
       <label class="required" for="">Query Type</label>
       <div class="input-group">
         <div>
-          <input id="contact-form-general-enquiry" name="query" type="radio" />
+          <input id="contact-form-general-enquiry" name="query" type="radio" value="general-enquiry"
+            data-query-general-enquiry />
           <label class="label-outline flex-group" for="contact-form-general-enquiry">
             <div class="radio-btn"></div>
             General Enquiry
@@ -55,28 +56,31 @@
         </div>
 
         <div>
-          <input id="contact-form-submit-request" name="query" type="radio" />
+          <input id="contact-form-submit-request" name="query" type="radio" value="support-request"
+            data-query-support-request />
           <label class="label-outline flex-group" for="contact-form-submit-request">
             <div class="radio-btn"></div>
             Support Request
           </label>
         </div>
       </div>
-      <p class="error">Please select a query type</p>
+      <p class="error"></p>
     </div>
 
-    <div class="label-input-group">
-      <label class="required" for="contact-form-message">Message</label>
-      <textarea class="contact-form-message contact-form-input" id="contact-form-message"></textarea>
-      <p class="error">This field is required</p>
+    <div>
+      <div class="label-input-group">
+        <label class="required" for="contact-form-message">Message</label>
+        <textarea class="contact-form-message contact-form-input" name="message" id="contact-form-message"></textarea>
+      </div>
+      <p class="error"></p>
     </div>
 
     <div>
       <div class="flex-group">
-        <input id="contact-form-consent" type="checkbox">
+        <input id="contact-form-consent" name="consent" type="checkbox" data-consent-input>
         <label class="required" for="contact-form-consent">I consent to being contacted by the team</label>
       </div>
-      <p class="error">To submit this form, please consent to being contacted</p>
+      <p class="error"></p>
     </div>
 
     <button class="contact-form-submit-btn" type="submit">Submit</button>
