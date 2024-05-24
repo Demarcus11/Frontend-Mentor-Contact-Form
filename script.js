@@ -108,6 +108,7 @@ form.addEventListener("submit", async function (e) {
     }
 
     sendAlert("Message Sent!", "Thanks for completing the form. We'll be in touch soon!");
+    form.reset();
   } catch (error) {
     console.log(error);
   }
