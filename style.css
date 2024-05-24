@@ -257,3 +257,22 @@ body {
     }
   }
 }
+
+.alert {
+  --gap: 0.5rem;
+  position: fixed;
+  background-color: var(--grey-700);
+  color: var(--white);
+  padding: 1.5rem;
+  display: grid;
+  gap: 1rem;
+  border-radius: 10px;
+  top: -4rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: top 500ms ease-in-out;
+
+  &.show {
+    top: 4rem;
+  }
+}
