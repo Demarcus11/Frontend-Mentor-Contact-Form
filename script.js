@@ -76,7 +76,6 @@ const validateForm = (formData) => {
   }
 
   if (!consentInput.checked) {
-    // showError(consentInput, ERROR_MESSAGES.consent);
     const errorElement = consentInput.parentElement.parentElement.querySelector(".error");
     errorElement.textContent = `${ERROR_MESSAGES.consent}`;
     hasErrors = true;
