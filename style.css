@@ -267,12 +267,24 @@ body {
   display: grid;
   gap: 1rem;
   border-radius: 10px;
-  top: -4rem;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: -10rem;
+  left: 1rem;
+  right: 1rem;
   transition: top 500ms ease-in-out;
 
   &.show {
-    top: 4rem;
+    top: 2rem;
+  }
+}
+@media (min-width: 35rem) {
+  .alert {
+    top: -4rem;
+    left: 50%;
+    right: revert;
+    transform: translate(-50%, -50%);
+
+    &.show {
+      top: 4rem;
+    }
   }
 }
